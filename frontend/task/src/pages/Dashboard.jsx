@@ -102,7 +102,6 @@ export default function Dashboard() {
       animate={{ opacity: 1 }}
       className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 text-white p-4 md:p-6"
     >
-
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 md:mb-0 tracking-wide">
           Dashboard
@@ -180,8 +179,16 @@ export default function Dashboard() {
               <>
                 <div className="mb-3">
                   <h3 className="font-semibold text-lg">{task.title}</h3>
+
                   <p className="text-sm text-gray-400">
-                    Due: {new Date(task.dueDate).toLocaleString()}
+                    Due:{" "}
+                    {new Date(task.dueDate).toLocaleString(undefined, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
                   </p>
                   <p
                     className={`text-xs mt-1 font-medium ${
